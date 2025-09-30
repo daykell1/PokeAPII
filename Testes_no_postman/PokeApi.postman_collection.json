@@ -1,0 +1,406 @@
+{
+	"info": {
+		"_postman_id": "6e4bf1ed-d806-4a09-9629-f00641823195",
+		"name": "PokeApi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27736405"
+	},
+	"item": [
+		{
+			"name": "Positivos",
+			"item": [
+				{
+					"name": "Caso de Teste 01 – Status Code",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Testa se o status code é 200\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// Testa se o nome do Pokémon é Pikachu\r",
+									"pm.test(\"Pokemon name is pikachu\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.name).to.eql(\"pikachu\");\r",
+									"});\r",
+									"\r",
+									"// Testa se o Pokémon tem pelo menos 1 habilidade\r",
+									"pm.test(\"Pokemon has abilities\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.abilities.length).to.be.above(0);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "pm.test(\"Status code is 200\", function () {\r\n    pm.response.to.have.status(200);\r\n});\r\n",
+							"options": {
+								"raw": {
+									"language": "javascript"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://pokeapi.co/api/v2/pokemon/pikachu",
+							"protocol": "https",
+							"host": [
+								"pokeapi",
+								"co"
+							],
+							"path": [
+								"api",
+								"v2",
+								"pokemon",
+								"pikachu"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Caso de Teste 02 - Nome do pokemon",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Testa se o status code é 200\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// Testa se o nome do Pokémon é Pikachu\r",
+									"pm.test(\"Pokemon name is pikachu\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.name).to.eql(\"pikachu\");\r",
+									"});\r",
+									"\r",
+									"// Testa se o Pokémon tem pelo menos 1 habilidade\r",
+									"pm.test(\"Pokemon has abilities\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.abilities.length).to.be.above(0);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://pokeapi.co/api/v2/pokemon/pikachu",
+							"protocol": "https",
+							"host": [
+								"pokeapi",
+								"co"
+							],
+							"path": [
+								"api",
+								"v2",
+								"pokemon",
+								"pikachu"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Caso de Teste 03 - Performance",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Testa se a resposta veio em menos de 2 segundos (2000 ms)\r",
+									"pm.test(\"Response time is less than 2000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://pokeapi.co/api/v2/pokemon/pikachu",
+							"protocol": "https",
+							"host": [
+								"pokeapi",
+								"co"
+							],
+							"path": [
+								"api",
+								"v2",
+								"pokemon",
+								"pikachu"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Caso de Teste 04 - Busca por ID",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Caso de Teste 05 – Campo Ausente",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Teste 1: Valida o status da resposta (200 OK)\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// Teste 2: Valida se o campo 'back_default' é ausente (null)\r",
+									"pm.test(\"Campo 'back_default' é ausente (null)\", function () {\r",
+									"    // Analisa a resposta JSON para acessar os dados\r",
+									"    const responseData = pm.response.json();\r",
+									"    \r",
+									"    // Verifica se o campo 'sprites.back_default' é null\r",
+									"    // A função '.to.be.null' verifica a ausência do valor\r",
+									"    pm.expect(responseData.sprites.back_default).to.be.null;\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://pokeapi.co/api/v2/pokemon/minior-red-meteor",
+							"protocol": "https",
+							"host": [
+								"pokeapi",
+								"co"
+							],
+							"path": [
+								"api",
+								"v2",
+								"pokemon",
+								"minior-red-meteor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Caso de Teste 06 – Nomes com Letras Maiúsculas",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Teste 1: Valida o status da resposta (200 OK)\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(`O nome do Pokémon é '${pm.response.json().name}'`, function () {\r",
+									"    // Analisa a resposta JSON para acessar os dados\r",
+									"    const responseData = pm.response.json();\r",
+									"    \r",
+									"    // Verifica se o campo 'name' existe e se o valor é 'pikachu'\r",
+									"    pm.expect(responseData.name).to.eql(`${responseData.name}`);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://pokeapi.co/api/v2/pokemon/TOGEPI",
+							"protocol": "https",
+							"host": [
+								"pokeapi",
+								"co"
+							],
+							"path": [
+								"api",
+								"v2",
+								"pokemon",
+								"TOGEPI"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Caso de Teste 07 – Consulta de Evolução",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Teste 1: Valida o status da resposta (200 OK)\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// Teste 2: Valida se a cadeia de evolução está correta\r",
+									"pm.test(\"A cadeia de evolução contém Bulbasaur, Ivysaur e Venusaur\", function () {\r",
+									"    // Analisa a resposta JSON para acessar os dados\r",
+									"    const responseData = pm.response.json();\r",
+									"    \r",
+									"    // Obtém o nome do primeiro Pokémon (Bulbasaur)\r",
+									"    const firstEvo = responseData.chain.species.name;\r",
+									"    \r",
+									"    // Obtém o nome da segunda evolução (Ivysaur)\r",
+									"    const secondEvo = responseData.chain.evolves_to[0].species.name;\r",
+									"    \r",
+									"    // Obtém o nome da terceira evolução (Venusaur)\r",
+									"    const thirdEvo = responseData.chain.evolves_to[0].evolves_to[0].species.name;\r",
+									"\r",
+									"    // Faz as verificações\r",
+									"    pm.expect(firstEvo).to.eql(\"bulbasaur\");\r",
+									"    pm.expect(secondEvo).to.eql(\"ivysaur\");\r",
+									"    pm.expect(thirdEvo).to.eql(\"venusaur\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://pokeapi.co/api/v2/evolution-chain/1",
+							"protocol": "https",
+							"host": [
+								"pokeapi",
+								"co"
+							],
+							"path": [
+								"api",
+								"v2",
+								"evolution-chain",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Negativos",
+			"item": [
+				{
+					"name": "Caso de Teste 01 - Dados inesxistente",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Testa se retorna 404 para Pokémon inexistente\r",
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"// Opcional: validar se o corpo tem a mensagem \"Not Found\"\r",
+									"pm.test(\"Mensagem de erro é Not Found\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.detail).to.eql(\"Not Found\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://pokeapi.co/api/v2/pokemon/xyz123",
+							"protocol": "https",
+							"host": [
+								"pokeapi",
+								"co"
+							],
+							"path": [
+								"api",
+								"v2",
+								"pokemon",
+								"xyz123"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Caso de Teste 02 - ID negativo",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
